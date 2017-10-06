@@ -1,0 +1,39 @@
+body{
+    background-color: #DCDCDC;
+    color: #4B0082;
+    font-family: cursive;
+}
+
+fieldset {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+.cont{
+    background-color: #C0C0C0; 
+}
+
+.err {
+    animation: blink 3s infinite;
+}
+            
+#resultado {
+    padding: 1em;
+    display: inline-block;
+}
+
+#resultado.err {
+    border: solid 1px red;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+    color: #8B0000;
+}
+            
+@keyframes blink {
+    0%{background-color: white;}
+    20%{background-color: #faa;}
+    100%{background-color: white;}
+}

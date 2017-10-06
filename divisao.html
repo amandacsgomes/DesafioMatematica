@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+        <link href="css.css" rel="stylesheet" type="text/css"/>
+        <title>Desafio de Matemática</title>
+    </head>
+    <body>
+    <img src="img/prefeitura.png" width="200px">
+    <center><h1><img src="img/divisao.png" width="60px">&nbsp;Divisão</h1></center>
+    <div class="cont">
+    Qual o resultado da divisão abaixo?<br>
+    <ul id="n1"></ul>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /
+    <ul id="n2"></ul>
+        <fieldset>
+            <input id="resposta" type="text"/><br>
+            <input id="ok" type="button" value="Conferir"/>
+        </fieldset>
+        <ul id="resultado"></ul>
+    </div>
+    <script>
+        var $resultado = document.getElementById('resultado');
+        var $n1 = document.getElementById('n1');
+        var $n2 = document.getElementById('n2');
+        var $resposta = document.getElementById('resposta');
+
+        var rand1 = Math.floor(Math.random()*10);
+        var rand2 = Math.floor(Math.random()*10);
+
+        $n1.innerHTML = rand1;
+        $n2.innerHTML = rand2;
+
+        function verificar() {
+            var resposta = $resposta.value;
+            
+            $resultado.innerHTML = '';
+            if(resposta == rand1 / rand2){
+                $resultado.className = '';
+                $resultado.innerHTML = 'Parabéns! Você conluiu o desafio!';
+            } else {
+                atualizaValores();
+                $resultado.className = 'err';
+                $resultado.innerHTML = '<li>Resposta errada, tente novamente.</li>';
+            }
+        }
+
+        function atualizaValores(){
+            rand1 = Math.floor(Math.random()*10);
+            rand2 = Math.floor(Math.random()*10);
+
+            $n1.innerHTML = rand1;
+            $n2.innerHTML = rand2;
+        }
+
+        document.getElementById('ok').addEventListener('click', function (e) {
+            verificar();
+        }, false);
+
+        $resposta.addEventListener('keyup', function (e) {
+            if (e.keyCode === 13) verificar();
+        }, false);
+
+    </script>
+
+</body>
+</html> 
